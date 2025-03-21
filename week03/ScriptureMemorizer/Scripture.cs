@@ -1,6 +1,5 @@
 public class Scripture
 {
-
     //Attributes
     private Reference reference;
     private List<Word> _words = new List<Word>(); 
@@ -8,7 +7,7 @@ public class Scripture
    //Constructors
     public Scripture(Reference reference, string text)
     {
-        this.reference = reference; // Asigns the object Reference
+        this.reference = reference; 
 
         // Divides the text in words and creates Word objects
         string[] wordsArray = text.Split(' '); // Separates word by space
@@ -22,15 +21,52 @@ public class Scripture
 
     public void HideRandomWords(int numberToHide)
     {
+          Random random = new Random();
+          List<Word> selected = new List<Word>();
 
+          for (int i = 0; i < numberToHide; i++)
+        {
+            int randomIndex = random.Next(_words.Count); 
+            Word wordToHide = _words[randomIndex];
+            if (!selected.Contains(wordToHide)) 
+            {
+                selected.Add(wordToHide);
+                wordToHide.Hide(); 
+            }
+            else
+            {
+                i--; 
+            }
+        }
     }
-
     public string GetDisplayText()
     {
-        return "";
-    }
+        string displayText = reference.GetDisplayText();  
 
-    public bool IsCompletelyHidden(){
-        return true;
+        foreach (Word word in _words)
+        {
+            if (word.IsHidden())
+            {
+                displayText += " ____";
+            }
+            else
+            {
+                displayText += " " + word.GetText(); 
+            }
+        }
+
+    return displayText;
+}
+
+    public bool IsCompletelyHidden()
+    {
+        foreach (Word word in _words)
+        {
+            if (!word.IsHidden()) 
+             {
+                return false;
+             }
+        }
+        return true; 
     }
 }

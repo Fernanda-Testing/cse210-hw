@@ -9,6 +9,16 @@ public class Word
         _isHidden = false;
     }
 
+        public string GetText()
+    {
+        return _text;
+    }
+
+    public void SetText(string text)
+    {
+        _text = text;
+    }
+
     public void Hide()
     {
         _isHidden = true;
@@ -26,6 +36,6 @@ public class Word
 
     public string GetDisplayText()
     {
-        return "";
+        return _text;
     }
 }
