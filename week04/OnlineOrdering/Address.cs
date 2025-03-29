@@ -59,6 +59,6 @@ public class Address
 
     public string DisplayAddress()
     {
-        return $"{GetStreet()}, {GetCity()}, {GetProvinceOrState}, {GetCountry()}";
+        return $"{GetStreet()}, City: {GetCity()}, Province/State: {GetProvinceOrState()}, Country: {GetCountry()}";
     }
 }   

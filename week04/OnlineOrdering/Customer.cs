@@ -11,9 +11,19 @@ public class Customer
         _address = address; 
     }
 
+    public string GetCustomerName()
+    {
+        return _name;
+    }
+
     public bool IsUSAResident()
     {
         bool result = _address.isInTheUSA();
         return result;
+    }
+
+    public string ShowCustomerAddress()
+    {
+        return _address.DisplayAddress();
     }
 }

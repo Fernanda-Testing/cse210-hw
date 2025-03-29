@@ -3,7 +3,6 @@ using System.Numerics;
 
 public class Product
 {
-    //Contains the name, product id, price, and quantity of each product.
     private string _productName;
     private int _productId;
     private double _price;
@@ -17,6 +16,15 @@ public class Product
         _quantity = quantity;
     }
 
+    public string GetProductName()
+    {
+        return _productName;
+    }
+
+    public int GetProductId()
+    {
+        return _productId;
+    }
     public double GetProductPrice()
     {
         return _price;
@@ -37,10 +45,7 @@ public class Product
         _quantity = quantity;
     }
 
-    //The total cost of this product is computed by multiplying the price per unit and the quantity. 
-    // (If the price per unit was $3 and they bought 5 of them, the product total cost would be $15.)
-
-    public double CalculateTotalCost()
+    public double CalculateTotalCostOfProduct()
     {
         double total = GetProductPrice() * GetQuantity();
         return total;

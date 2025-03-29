@@ -12,21 +12,33 @@ public class Order
     }
     public double GetTotalCostOfOrder()
     {
-    //    double result = 
-       return 0;
+        double total = 0;
+        
+        foreach (Product product in _products)
+        {
+            
+            total += product.CalculateTotalCostOfProduct() + CalculateShippingCost();
+        }
+       return total;
     }
 
     public string GetPackingLabel()
     {
-        return "";
+        string result = "";
+        foreach (Product product in _products)
+        {
+            result += $"-{product.GetProductName()}-> {product.GetProductId()}";
+        }
+        return result;
     }
     public string GetShippingLabel()
     {
-        return "";
+        return $"Customer: {_customer.GetCustomerName()} - Address: {_customer.ShowCustomerAddress()}";
     }
 
-    public double CalculateShippingCost(double shippingCost)
+    public double CalculateShippingCost()
     {
+        double shippingCost;
         if (_customer.IsUSAResident() == true)
         {
             shippingCost = 5;
@@ -35,9 +47,6 @@ public class Order
         {
             shippingCost = 35;
         }
-
         return shippingCost;
     }
-
-
 }
