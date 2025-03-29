@@ -55,7 +55,7 @@ class Program
         Console.WriteLine("Shipping Label:");
         Console.WriteLine(order.GetShippingLabel());
 
-        Console.WriteLine("\nTotal Price of the order: ");
+        Console.WriteLine("\nTotal Price of the order (in $): ");
         Console.WriteLine(order.GetTotalCostOfOrder());
         }
     }
