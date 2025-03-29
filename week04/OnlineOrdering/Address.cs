@@ -5,6 +5,13 @@ public class Address
     private string _provinceOrState;
     private string _country;
 
+    public Address(string address, string city, string provinceOrState, string country)
+    {
+        _streetAddress = address;
+        _city = city;
+        _provinceOrState = provinceOrState;
+        _country = country;
+    }
     public string GetStreet()
     {
         return _streetAddress;

@@ -3,15 +3,16 @@ using System.Numerics;
 
 public class Product
 {
+    private static int _nextId = 1;  // Static variable for incremental ID 
     private string _productName;
     private int _productId;
     private double _price;
     private int _quantity;
 
-    public Product(string name, int id, double price, int quantity)
+    public Product(string name, double price, int quantity)
     {
         _productName = name;
-        _productId = id;
+        _productId = _nextId++;
         _price = price;
         _quantity = quantity;
     }

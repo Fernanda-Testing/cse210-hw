@@ -17,9 +17,9 @@ public class Order
         foreach (Product product in _products)
         {
             
-            total += product.CalculateTotalCostOfProduct() + CalculateShippingCost();
+            total += product.CalculateTotalCostOfProduct();
         }
-       return total;
+       return total + CalculateShippingCost();
     }
 
     public string GetPackingLabel()
@@ -27,7 +27,7 @@ public class Order
         string result = "";
         foreach (Product product in _products)
         {
-            result += $"-{product.GetProductName()}-> {product.GetProductId()}";
+            result += $"- {product.GetProductName()} - Id: {product.GetProductId()}\n";
         }
         return result;
     }
@@ -48,5 +48,10 @@ public class Order
             shippingCost = 35;
         }
         return shippingCost;
+    }
+
+    public void AddProduct(Product product)
+    {
+        _products.Add(product);
     }
 }

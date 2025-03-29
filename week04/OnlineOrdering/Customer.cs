@@ -3,7 +3,7 @@ using System.Xml.XPath;
 public class Customer 
 {
     private string _name;
-    private Address _address = new Address();
+    private Address _address;
 
     public Customer(string name, Address address)
     {
