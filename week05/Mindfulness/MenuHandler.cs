@@ -25,20 +25,22 @@ public class MenuHandler
             }
             if (option == 1)
             {
-                BreathingActivity bA = new BreathingActivity("Breathing", "This activity will help you relax by walking your through breathing in and out slowly. Clear your mind and focus on your breathing", 30);
+                BreathingActivity bA = new BreathingActivity("Breathing", "This activity will help you relax by walking your through breathing in and out slowly. Clear your mind and focus on your breathing");
                 bA.Run();
             }
             else if (option == 2)
             {
-                Console.WriteLine("option 2");
+                ReflectingActivity rA = new ReflectingActivity("Reflecting", "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.");
+                rA.Run();
             }
             else if (option == 3)
             {
-                Console.WriteLine("option 3");
+                ListingActivity lA = new ListingActivity("Listing", "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.");
+                lA.Run();
             }
             else if (option == 4)
             {
-                Console.WriteLine("Bye");
+                break;
             }
             else
             {

@@ -6,14 +6,28 @@ using System.Threading.Tasks;
 
 public class BreathingActivity : Activity
 {
-    public BreathingActivity(string name, string description, int duration) : base(name, description, duration)
+    public BreathingActivity(string name, string description) : base(name, description, 0)
     {
-        _activityName = name;
-        _activityDescription = description;
-        _durationOfTheActivity = duration;
     }
     public void Run()
     {
+        DisplayStartingMessage();
+        
+        DateTime startTime = DateTime.Now;
+        DateTime endTime = startTime.AddSeconds(_durationOfTheActivity);
 
+        while(DateTime.Now < endTime)
+        {
+        Console.Write("\nBreathe in...");
+        Thread.Sleep(500);
+        ShowCountdown(6);
+        
+        Console.Write("\nNow breathe out...");
+        Thread.Sleep(500);
+        ShowCountdown(6);
+        Console.WriteLine("\n");
+        }
+
+        DisplayEndingMessage();
     }
 }
