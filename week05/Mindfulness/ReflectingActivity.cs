@@ -18,15 +18,15 @@ public class ReflectingActivity : Activity
 
         private List<string> _relatedQuestions = new List<string>()
         {
-         "Why was this experience meaningful to you? ",
-         "Have you ever done anything like this before? ",
-         "How did you get started? ",
-         "How did you feel when it was complete? ",
-         "What made this time different than other times when you were not as successful? ",
-         "What is your favorite thing about this experience? ",
-         "What could you learn from this experience that applies to other situations? ",
-         "What did you learn about yourself through this experience? ",
-         "How can you keep this experience in mind in the future? "
+            "Why was this experience meaningful to you? ",
+            "Have you ever done anything like this before? ",
+            "How did you get started? ",
+            "How did you feel when it was complete? ",
+            "What made this time different than other times when you were not as successful? ",
+            "What is your favorite thing about this experience? ",
+            "What could you learn from this experience that applies to other situations? ",
+            "What did you learn about yourself through this experience? ",
+            "How can you keep this experience in mind in the future? "
         };
 
         public ReflectingActivity(string name, string description) : base(name, description, 0)
@@ -62,22 +62,26 @@ public class ReflectingActivity : Activity
             
             DisplayEndingMessage();
         }
+
         public string GetRandomPrompt()
         {
             Random random = new Random();
             int index = random.Next(_reflectionPrompts.Count);
             return _reflectionPrompts[index];
         }
+
         public string GetRandomQuestion()
         {
             Random random = new Random();
             int index = random.Next(_relatedQuestions.Count);
             return _relatedQuestions[index];
         }
+        
         public void DisplayPrompt()
         {  
             Console.WriteLine($"--- {GetRandomPrompt()} ---");
         }
+        
         public void DisplayQuestions()
         {
             Console.WriteLine($"> {GetRandomQuestion()}");      

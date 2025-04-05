@@ -9,6 +9,7 @@ public class BreathingActivity : Activity
     public BreathingActivity(string name, string description) : base(name, description, 0)
     {
     }
+    
     public void Run()
     {
         DisplayStartingMessage();

@@ -7,6 +7,7 @@ public class Activity
     protected string _activityName;
     protected string _activityDescription;
     protected int _durationOfTheActivity;
+
     public Activity(string name, string description, int duration)
     {
         _activityName = name;
@@ -18,13 +19,16 @@ public class Activity
     {
         Console.WriteLine($"\nWelcome to the {_activityName} Activity\n");
         Console.WriteLine($"{_activityDescription}\n");
+
         Console.Write("How long in seconds, would you like for your session? ");
         string entry = Console.ReadLine();
         _durationOfTheActivity = int.Parse(entry);
+
         Console.WriteLine("Get ready...");
         ShowSpinner(4);
         Console.Write("\n");
     }
+
     public void ShowSpinner(int seconds)
     {
         List<string> animationStrings = new List<string>() {"|", "/", "─", "\\"};
@@ -51,6 +55,7 @@ public class Activity
         Console.WriteLine($"You have completed another {_durationOfTheActivity} seconds of the {_activityName} Activity.");
         ShowSpinner(4);
     }
+    
     public void ShowCountdown(int seconds)
     {
         for (int i = seconds; i > 0; i--)
