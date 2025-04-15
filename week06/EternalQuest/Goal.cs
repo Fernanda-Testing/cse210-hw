@@ -1,16 +1,24 @@
 public abstract class Goal
 {
-
-    private string _shortName;
-    private string _description;
-    private string _points;
+    protected string _shortName;
+    protected string _description;
+    protected int _points;
+    protected int _id;
     
-    public Goal(string name, string description, string points)
+    public Goal(int id, string name, string description, int points)
     {
         _shortName = name;
         _description = description;
         _points = points;
+        _id = id;
     }
+
+    public int GetId()
+    {
+        return _id;
+    }
+
+    public abstract int GetPoints();
 
     public abstract void RecordEvent();
 
@@ -18,9 +26,20 @@ public abstract class Goal
 
     public virtual string GetDetailsString()
     {
-        return "";
+        string status;
+
+        if (IsComplete() == true)
+        {
+            status = "[X]";
+        }
+        else status = "[ ]";
+
+        return $"{GetId()}. {status} {_shortName} ({_description})";
     }
 
+    public virtual string GetShortName()
+    {
+        return $"{_shortName}";
+    }
     public abstract string GetStringRepresentation ();
-
 }
